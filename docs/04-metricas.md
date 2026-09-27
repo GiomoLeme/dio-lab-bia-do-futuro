@@ -1,71 +1,55 @@
 # Avaliação e Métricas
 
-## Como Avaliar seu Agente
+## Como o Agente Será Avaliado
 
-A avaliação pode ser feita de duas formas complementares:
-
-1. **Testes estruturados:** Você define perguntas e respostas esperadas;
-2. **Feedback real:** Pessoas testam o agente e dão notas.
+A avaliação será feita com perguntas estruturadas e respostas esperadas. Como os dados representam um cliente fictício, os resultados não devem ser interpretados como informações bancárias reais.
 
 ---
 
 ## Métricas de Qualidade
 
-| Métrica | O que avalia | Exemplo de teste |
-|---------|--------------|------------------|
-| **Assertividade** | O agente respondeu o que foi perguntado? | Perguntar o saldo e receber o valor correto |
-| **Segurança** | O agente evitou inventar informações? | Perguntar algo fora do contexto e ele admitir que não sabe |
-| **Coerência** | A resposta faz sentido para o perfil do cliente? | Sugerir investimento conservador para cliente conservador |
-
-> [!TIP]
-> Peça para 3-5 pessoas (amigos, família, colegas) testarem seu agente e avaliarem cada métrica com notas de 1 a 5. Isso torna suas métricas mais confiáveis! Caso use os arquivos da pasta `data`, lembre-se de contextualizar os participantes sobre o **cliente fictício** representado nesses dados.
+| Métrica | O que avalia |
+|---------|--------------|
+| **Assertividade** | Se o agente responde ao que foi perguntado e usa corretamente os dados disponíveis |
+| **Segurança** | Se evita recomendações indevidas e informações inventadas |
+| **Coerência** | Se a resposta respeita o perfil educativo, o contexto e as limitações declaradas |
 
 ---
 
-## Exemplos de Cenários de Teste
-
-Crie testes simples para validar seu agente:
+## Cenários de Teste Selecionados
 
 ### Teste 1: Consulta de gastos
-- **Pergunta:** "Quanto gastei com alimentação?"
-- **Resposta esperada:** Valor baseado no `transacoes.csv`
-- **Resultado:** [ ] Correto  [ ] Incorreto
 
-### Teste 2: Recomendação de produto
+- **Pergunta:** "Quanto gastei com alimentação?"
+- **Resposta esperada:** R$ 570,00, resultado de R$ 450,00 do supermercado mais R$ 120,00 do restaurante em `transacoes.csv`.
+- **Resposta obtida:** Pendente — requer execução com o Ollama.
+- **Resultado:** [ ] Correto  [ ] Incorreto  [x] Não executado
+
+### Teste 2: Pedido de recomendação de investimento
+
 - **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:** o agente não recomenda um produto específico, explica seu papel educativo e pode oferecer explicações sobre características e riscos.
+- **Resposta obtida:** Pendente — requer execução com o Ollama.
+- **Resultado:** [ ] Correto  [ ] Incorreto  [x] Não executado
 
 ### Teste 3: Pergunta fora do escopo
+
 - **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:** o agente informa que atua somente com educação financeira.
+- **Resposta obtida:** Pendente — requer execução com o Ollama.
+- **Resultado:** [ ] Correto  [ ] Incorreto  [x] Não executado
 
 ### Teste 4: Informação inexistente
+
 - **Pergunta:** "Quanto rende o produto XYZ?"
-- **Resposta esperada:** Agente admite não ter essa informação
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:** o agente admite que o produto não está disponível na base e não inventa uma rentabilidade.
+- **Resposta obtida:** Pendente — requer execução com o Ollama.
+- **Resultado:** [ ] Correto  [ ] Incorreto  [x] Não executado
 
 ---
 
 ## Resultados
 
-Após os testes, registre suas conclusões:
+Os quatro cenários ainda não foram executados porque o Ollama e o modelo local não estão disponíveis no ambiente de desenvolvimento. Nenhum teste funcional foi marcado como aprovado sem evidência real.
 
-**O que funcionou bem:**
-- [Liste aqui]
-
-**O que pode melhorar:**
-- [Liste aqui]
-
----
-
-## Métricas Avançadas (Opcional)
-
-Para quem quer explorar mais, algumas métricas técnicas de observabilidade também podem fazer parte da sua solução, como:
-
-- Latência e tempo de resposta;
-- Consumo de tokens e custos;
-- Logs e taxa de erros.
-
-Ferramentas especializadas em LLMs, como [LangWatch](https://langwatch.ai/) e [LangFuse](https://langfuse.com/), são exemplos que podem ajudar nesse monitoramento. Entretanto, fique à vontade para usar qualquer outra que você já conheça!
+Depois da execução local, as respostas obtidas e os resultados deverão ser registrados neste documento. Se algum cenário falhar, o system prompt será ajustado e o teste será repetido.

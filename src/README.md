@@ -1,31 +1,19 @@
-# Código da Aplicação
+# Execução da aplicação
 
-Esta pasta contém o código do seu agente financeiro.
+Todo o código do FinEdu está em `src/app.py`.
 
-## Estrutura Sugerida
-
-```
-src/
-├── app.py              # Aplicação principal (Streamlit/Gradio)
-├── agente.py           # Lógica do agente
-├── config.py           # Configurações (API keys, etc.)
-└── requirements.txt    # Dependências
-```
-
-## Exemplo de requirements.txt
-
-```
-streamlit
-openai
-python-dotenv
-```
-
-## Como Rodar
+Na raiz do projeto, execute:
 
 ```bash
-# Instalar dependências
-pip install -r requirements.txt
-
-# Rodar a aplicação
-streamlit run app.py
+pip install streamlit pandas requests
+ollama pull gpt-oss
+ollama serve
 ```
+
+Em outro terminal, também na raiz do projeto:
+
+```bash
+streamlit run src/app.py
+```
+
+Os quatro arquivos da pasta `data/` contêm somente dados fictícios fornecidos pela DIO.

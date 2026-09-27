@@ -1,44 +1,44 @@
-# Pitch (3 minutos)
+# Pitch do FinEdu (até 3 minutos)
 
-> [!TIP]
-> Você pode usar alguns slides pra apoiar no seu Pitch e mostrar sua solução na prática.
- 
-## Roteiro Sugerido
+## Roteiro
 
-### 1. O Problema (30 seg)
-> Qual dor do cliente você resolve?
+### 1. O Problema — 0:00 a 0:30
 
-[Sua descrição aqui]
+Muitas pessoas que estão começando a cuidar das próprias finanças têm dificuldade para entender seus gastos, organizar uma reserva de emergência e compreender produtos financeiros. Informações excessivamente técnicas podem tornar esse aprendizado ainda mais difícil.
 
-### 2. A Solução (1 min)
-> Como seu agente resolve esse problema?
+### 2. A Solução — 0:30 a 1:30
 
-[Sua descrição aqui]
+O FinEdu é um assistente de educação financeira que explica esses assuntos de forma simples e didática. Ele utiliza inteligência artificial generativa executada localmente com o Ollama e os dados fictícios fornecidos pela DIO.
 
-### 3. Demonstração (1 min)
-> Mostre o agente funcionando (pode ser gravação de tela)
+A aplicação pode responder perguntas sobre as transações da base, explicar produtos financeiros cadastrados e contextualizar as respostas com o perfil e as metas do cliente fictício. O FinEdu não recomenda investimentos, não usa dados bancários reais e admite quando uma informação não está disponível.
 
-[Descreva o que será mostrado]
+### 3. Demonstração — 1:30 a 2:30
 
-### 4. Diferencial e Impacto (30 seg)
-> Por que essa solução é inovadora e qual é o impacto dela na sociedade?
+Durante a gravação, mostrar a aplicação Streamlit e fazer estas perguntas:
 
-[Sua descrição aqui]
+1. "Quanto gastei com alimentação?"
+2. "Como funciona o Tesouro Selic?"
+3. "Qual investimento você recomenda para mim?"
+
+Destacar a resposta baseada nas transações e a recusa segura ao pedido de recomendação.
+
+### 4. Diferencial e Impacto — 2:30 a 3:00
+
+O diferencial do FinEdu é transformar dados fictícios em exemplos fáceis de compreender, mantendo regras claras de segurança. A solução é pequena, gratuita para execução local e voltada ao aprendizado de quem está começando em educação financeira.
 
 ---
 
 ## Checklist do Pitch
 
 - [ ] Duração máxima de 3 minutos
-- [ ] Problema claramente definido
-- [ ] Solução demonstrada na prática
-- [ ] Diferencial explicado
-- [ ] Áudio e vídeo com boa qualidade
+- [x] Problema claramente definido no roteiro
+- [x] Solução descrita no roteiro
+- [ ] Demonstração gravada
+- [x] Diferencial explicado no roteiro
+- [ ] Áudio e vídeo verificados
 
 ---
 
 ## Link do Vídeo
 
-> Cole aqui o link do seu pitch (YouTube, Loom, Google Drive, etc.)
-
-[Link do vídeo]
+**Pendente — vídeo ainda não gravado.**
