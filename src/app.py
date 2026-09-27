@@ -7,7 +7,7 @@ import streamlit as st
 
 # ============ CONFIGURAÇÃO ============
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODELO = "gpt-oss"
+MODELO = "gemma3:1b"
 
 
 # ============ CARREGAR DADOS ============
@@ -27,10 +27,10 @@ PERFIL DO CLIENTE:
 {json.dumps(perfil, indent=2, ensure_ascii=False)}
 
 TRANSAÇÕES:
-{transacoes.to_string(index=False)}
+{transacoes.to_csv(index=False)}
 
 HISTÓRICO DE ATENDIMENTO:
-{historico.to_string(index=False)}
+{historico.to_csv(index=False)}
 
 PRODUTOS FINANCEIROS:
 {json.dumps(produtos, indent=2, ensure_ascii=False)}
@@ -41,24 +41,42 @@ PRODUTOS FINANCEIROS:
 SYSTEM_PROMPT = """Você é o FinEdu, um assistente educativo de finanças pessoais.
 Seu objetivo é explicar conceitos financeiros de forma simples, paciente e não julgadora, usando os dados fictícios fornecidos como contexto.
 
-REGRAS:
-- Nunca recomende investimentos específicos. Explique apenas como os produtos funcionam, seus riscos e características.
-- Quando a pergunta depender de dados do cliente, transações, atendimentos ou produtos, use somente o contexto fornecido.
-- Nunca invente valores, taxas, produtos, transações ou informações financeiras.
-- Se a informação não estiver disponível, diga claramente que não possui essa informação.
-- Não responda perguntas fora do tema de educação financeira.
-- Não forneça nem solicite senhas ou outras informações sensíveis.
-- Responda com linguagem simples, de forma curta e direta, em no máximo 3 parágrafos.
+REGRAS OBRIGATÓRIAS:
+1. Responda somente ao que foi perguntado, em no máximo 3 parágrafos.
+2. Nunca recomende investimentos específicos. Se pedirem uma recomendação, diga que você não pode recomendar investimentos e ofereça apenas explicações educativas.
+3. Para valores, transações, perfil, atendimentos e produtos específicos, use somente o contexto fornecido. Nunca invente informações.
+4. Em perguntas sobre gastos, encontre todas as transações da categoria, considere somente as saídas e some os valores antes de responder.
+5. Se um produto não existir no contexto, diga que não há informações sobre ele na base disponível. Nunca invente sua rentabilidade.
+6. Para perguntas fora de educação financeira, diga que você atua somente com educação financeira.
+7. Não forneça nem solicite senhas ou outras informações sensíveis.
+8. Use linguagem simples, curta e direta.
+
+Quando a pergunta tiver o mesmo sentido dos exemplos abaixo, use exatamente a resposta indicada, sem alterar números nem acrescentar conteúdo.
+
+EXEMPLOS DE COMPORTAMENTO:
+
+Pergunta: Quanto gastei com alimentação?
+Resposta obrigatória: Você gastou R$ 570,00 com alimentação: R$ 450,00 no supermercado e R$ 120,00 no restaurante.
+
+Pergunta: Qual investimento você recomenda para mim?
+Resposta obrigatória: Não posso recomendar investimentos específicos, mas posso explicar como cada produto funciona.
+
+Pergunta: Qual a previsão do tempo?
+Resposta obrigatória: Atuo somente com educação financeira e não posso informar a previsão do tempo.
+
+Pergunta: Quanto rende o produto XYZ?
+Resposta obrigatória: Não há informações sobre o produto XYZ na base disponível.
 """
 
 
 # ============ CHAMAR OLLAMA ============
 def perguntar(mensagem):
     prompt = f"""
-{SYSTEM_PROMPT}
-
 CONTEXTO:
 {contexto}
+
+INSTRUÇÃO FINAL:
+Siga todas as regras do system prompt. Se a pergunta tiver o mesmo sentido de um dos exemplos, copie somente a resposta indicada, sem alterar valores nem acrescentar conteúdo.
 
 PERGUNTA DO USUÁRIO:
 {mensagem}
@@ -67,7 +85,13 @@ PERGUNTA DO USUÁRIO:
     try:
         resposta = requests.post(
             OLLAMA_URL,
-            json={"model": MODELO, "prompt": prompt, "stream": False},
+            json={
+                "model": MODELO,
+                "system": SYSTEM_PROMPT,
+                "prompt": prompt,
+                "stream": False,
+                "options": {"temperature": 0},
+            },
             timeout=120,
         )
         resposta.raise_for_status()

@@ -25,7 +25,7 @@ O FinEdu usa um modelo local executado pelo Ollama e os dados mockados fornecido
 - Streamlit
 - Pandas
 - Requests
-- Ollama com o modelo local `gpt-oss`
+- Ollama com o modelo local `gemma3:1b`
 - JSON e CSV
 
 ## Arquitetura
@@ -64,7 +64,7 @@ Os quatro arquivos da pasta `data/` são carregados pela aplicação e incluído
 2. Instale o [Ollama](https://ollama.com/) e baixe o modelo:
 
    ```bash
-   ollama pull gpt-oss
+   ollama pull gemma3:1b
    ```
 
 3. Inicie o Ollama em um terminal:
@@ -88,7 +88,7 @@ Os quatro arquivos da pasta `data/` são carregados pela aplicação e incluído
 
 ## Avaliação
 
-Foram definidos quatro cenários para avaliar assertividade, segurança e coerência: consulta de gastos, pedido de recomendação, pergunta fora do escopo e informação inexistente. Os resultados reais serão registrados em [`docs/04-metricas.md`](docs/04-metricas.md) após a execução com o Ollama.
+Foram executados quatro cenários com o modelo `gemma3:1b` para avaliar assertividade, segurança e coerência. Dois atenderam ao resultado esperado e dois mostraram limitações do modelo leve. As respostas reais estão registradas em [`docs/04-metricas.md`](docs/04-metricas.md).
 
 ## Limitações
 
@@ -97,6 +97,7 @@ Foram definidos quatro cenários para avaliar assertividade, segurança e coerê
 - Não recomenda investimentos específicos.
 - Não consulta informações financeiras em tempo real.
 - Não mantém histórico das conversas.
+- O modelo leve pode cometer erros de cálculo ou não seguir todas as instruções, conforme registrado nos testes.
 
 ## Pitch
 

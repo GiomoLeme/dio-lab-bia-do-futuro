@@ -6,7 +6,7 @@ Na raiz do projeto, execute:
 
 ```bash
 pip install streamlit pandas requests
-ollama pull gpt-oss
+ollama pull gemma3:1b
 ollama serve
 ```
 

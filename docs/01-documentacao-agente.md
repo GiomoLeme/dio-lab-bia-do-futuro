@@ -60,7 +60,7 @@ flowchart TD
 |------------|-----------|
 | Interface | Chatbot simples criado com Streamlit |
 | Aplicação | Um único arquivo Python que carrega os dados e monta o prompt |
-| LLM | Modelo local `gpt-oss` executado pelo Ollama |
+| LLM | Modelo local `gemma3:1b` executado pelo Ollama |
 | Base de Conhecimento | Quatro arquivos JSON e CSV fictícios da DIO |
 | Segurança | Regras do system prompt que limitam o escopo e evitam informações inventadas |
 
