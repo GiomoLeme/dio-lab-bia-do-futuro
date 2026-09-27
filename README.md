@@ -45,12 +45,11 @@ Os quatro arquivos da pasta `data/` são carregados pela aplicação e incluído
 ## Estrutura
 
 ```text
+├── README.md
 ├── data/       # Dados fictícios fornecidos pela DIO
 ├── docs/       # Documentação das etapas do desafio
-├── src/
-│   └── app.py  # Aplicação Streamlit
-├── assets/     # Materiais do repositório-base
-└── examples/   # Referências do repositório-base
+└── src/
+    └── app.py  # Aplicação Streamlit
 ```
 
 ## Como executar
@@ -88,7 +87,7 @@ Os quatro arquivos da pasta `data/` são carregados pela aplicação e incluído
 
 ## Avaliação
 
-Foram executados quatro cenários com o modelo `gemma3:1b` para avaliar assertividade, segurança e coerência. Dois atenderam ao resultado esperado e dois mostraram limitações do modelo leve. As respostas reais estão registradas em [`docs/04-metricas.md`](docs/04-metricas.md).
+Foram executados quatro cenários com o modelo `gemma3:1b` para avaliar assertividade, segurança e coerência. A aplicação funcionou e dois cenários atenderam ao resultado esperado. Os outros dois revelaram limitações do modelo: erro no cálculo dos gastos com alimentação e associação incorreta de uma rentabilidade a um produto inexistente. Os resultados reais estão registrados em [`docs/04-metricas.md`](docs/04-metricas.md).
 
 ## Limitações
 
@@ -97,8 +96,11 @@ Foram executados quatro cenários com o modelo `gemma3:1b` para avaliar assertiv
 - Não recomenda investimentos específicos.
 - Não consulta informações financeiras em tempo real.
 - Não mantém histórico das conversas.
-- O modelo leve pode cometer erros de cálculo ou não seguir todas as instruções, conforme registrado nos testes.
+- O modelo leve errou o cálculo dos gastos com alimentação em um dos testes.
+- O modelo associou incorretamente a rentabilidade de outro produto a um produto inexistente.
 
 ## Pitch
 
-O roteiro está disponível em [`docs/05-pitch.md`](docs/05-pitch.md). O vídeo ainda será gravado e seu link está pendente.
+O roteiro está disponível em [`docs/05-pitch.md`](docs/05-pitch.md).
+
+Vídeo: [Pitch do FinEdu](https://youtu.be/110qJ99Tb4E)

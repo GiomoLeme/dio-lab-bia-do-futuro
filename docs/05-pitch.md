@@ -33,7 +33,7 @@ O diferencial do FinEdu é transformar dados fictícios em exemplos fáceis de c
 - [ ] Duração máxima de 3 minutos
 - [x] Problema claramente definido no roteiro
 - [x] Solução descrita no roteiro
-- [ ] Demonstração gravada
+- [x] Demonstração gravada
 - [x] Diferencial explicado no roteiro
 - [ ] Áudio e vídeo verificados
 
@@ -41,4 +41,4 @@ O diferencial do FinEdu é transformar dados fictícios em exemplos fáceis de c
 
 ## Link do Vídeo
 
-**Pendente — vídeo ainda não gravado.**
+[Assista ao pitch do FinEdu no YouTube](https://youtu.be/110qJ99Tb4E)

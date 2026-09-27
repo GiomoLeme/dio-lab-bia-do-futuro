@@ -116,4 +116,4 @@ O que é uma reserva de emergência?
 - O prompt separa explicação educativa de recomendação de investimento.
 - Valores e informações específicas devem vir dos quatro arquivos fornecidos.
 - Os testes com `gemma3:1b` levaram ao uso do campo `system` do Ollama, exemplos curtos de comportamento, CSV em formato textual e temperatura zero.
-- Mesmo após os ajustes, o modelo leve ainda errou a soma de gastos e não declarou claramente seu escopo em uma das respostas. Esses resultados foram mantidos na documentação sem serem marcados como aprovados.
+- Na avaliação final, o modelo leve ainda errou a soma de gastos e associou uma rentabilidade a um produto inexistente. Esses resultados foram mantidos na documentação sem serem marcados como aprovados.
